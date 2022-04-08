@@ -1,11 +1,9 @@
-
 import { useState, useEffect } from "react";
 
 const Result = ({ input }) => {
-
-
 	const [shortlink, setShortlink] = useState("link");
 	const [inputstyle, setInputstyle] = useState({ display: "none" });
+	const [count, setCount] = useState(1);
 	const [copy, setCopy] = useState("copy");
 	const handlecopy = () => {
 		navigator.clipboard.writeText(shortlink);
@@ -15,7 +13,7 @@ const Result = ({ input }) => {
 		const res = await fetch("https://api-ssl.bitly.com/v4/shorten", {
 			method: "POST",
 			headers: {
-				Authorization: "Bearer "+process.env.REACT_APP_TOKEN,
+				Authorization: "Bearer " + process.env.REACT_APP_TOKEN,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
@@ -23,17 +21,22 @@ const Result = ({ input }) => {
 				domain: "bit.ly",
 			}),
 		}).then((res) => res.json());
+		setCount(2);
+
 		setShortlink(res.link);
 		setInputstyle({ display: "flex" });
 	};
-	if(input.length) data()
-	useEffect(()=>{
-		setTimeout(()=>setCopy('copy'),10000)
-	})
+
+	useEffect(() => {
+		if (input.length && count === 1) data();
+		setTimeout(() => setCopy("copy"), 10000);
+	});
 	return (
 		<div className='result' style={inputstyle}>
 			<p>
-				<a href={shortlink} target='_blank'>{shortlink}</a>
+				<a href={shortlink} target='_blank' rel="noopener noreferrer">
+					{shortlink}
+				</a>
 			</p>
 			<button onClick={handlecopy}>{copy}</button>
 		</div>
