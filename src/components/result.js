@@ -26,9 +26,7 @@ const Result = ({ input }) => {
 		setShortlink(res.link);
 		setInputstyle({ display: "flex" });
 	};
-	useEffect(() => {
-		if (input.length) data();
-	}, [input]);
+	if(input.length) data()
 	useEffect(()=>{
 		setTimeout(()=>setCopy('copy'),10000)
 	})
