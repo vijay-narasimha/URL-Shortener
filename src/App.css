@@ -1,59 +1,71 @@
-*{
-  padding:0;
-  margin:0;
-  box-sizing: border-box;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
-body{
-  overflow: hidden;
-}
-
-.container{
-height: 80vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-transform: scale(1.8);
-
-}
-h1{
-  font-size: 3.5rem;
-}
-h1 span{
-  color:#fc8403;
+body {
+	overflow: hidden;
 }
 
-.inputgroup{
-display: flex;
-margin:2rem 0;
+.container {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transform: scale(1.8);
+	width:100%;
 }
-input{
-width:100%;
-padding:0.5rem 0.2rem 0.5rem 0;
-border:none;
-border-bottom: 1px solid black;
-margin-right:1.5rem;
-outline:none;
+@media(max-width:700px){
+	.container{
+		transform: scale(1);
+		padding:0 10%;
+	
+	}
+	
 }
-.btn{
-background-color: #fc8403;
-color:#f7f7f7;
-padding:0.3rem 0.5rem;
+h1 {
+	font-size: 3.5rem;
+}
+h1 span {
+	color: #fc8403;
 }
 
-.result{
-  display:flex;
-  align-items: center;
-  justify-content: space-around;
-  padding:0.5rem 1rem;
+.inputgroup {
+	display: flex;
+	margin: 2rem 0;
+}
+input {
+	width: 100%;
+	padding: 0.5rem 0.2rem 0.5rem 0;
+	border: none;
+	border-bottom: 1px solid black;
+	margin-right: 1.5rem;
+	outline: none;
+}
+.btn {
+	background-color: #fc8403;
+	color: #f7f7f7;
+	padding: 0.3rem 0.5rem;
 }
 
-.result p{
-  padding:0.5rem 1rem;
-  margin-right:1rem;
+.result {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0.5rem 1rem;
 }
-.result button{
-  padding:0.5rem 1rem;
-  cursor:pointer;
-  
+
+ .urlmessage p {
+	padding: 0.5rem 1rem;
+	margin-right: 1rem;
+}
+ button {
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: 10px;
+
+}
+.error-message{
+	color:red;
 }
