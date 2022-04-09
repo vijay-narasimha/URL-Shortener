@@ -48,7 +48,7 @@ const Result = ({ input }) => {
 				</p>
 				<button onClick={handlecopy}>{copy}</button>
 			</div>
-			<div className='error-message' >
+			<div className='error-message' style={urlmessage} >
 				Invalid URL ..     Please try again  ..
 			</div>
 		</div>
